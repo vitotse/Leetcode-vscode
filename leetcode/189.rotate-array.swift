@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=189 lang=swift
+ * @lc app=leetcode id=189 lang=swift
  *
- * [189] 旋转数组
+ * [189] Rotate Array
  */
 
 // @lc code=start

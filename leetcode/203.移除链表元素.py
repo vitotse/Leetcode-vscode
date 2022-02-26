@@ -14,7 +14,7 @@ class Solution:
     def removeElements(self, head: ListNode, val: int) -> ListNode:
         
         dump = ListNode(next=head)
-        pre = head
+        pre = dump
         while pre.next:
             if pre.next.val == val:
                 pre.next = pre.next.next

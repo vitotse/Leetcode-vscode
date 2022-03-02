@@ -21,13 +21,14 @@ class Solution:
 
         cur = dummy
         while cur.next and cur.next.next:
+            # 检查相同的值
             if cur.next.val == cur.next.next.val:
                 x = cur.next.val
+                # 跳过相同值的节点
                 while cur.next and cur.next.val == x:
                     cur.next = cur.next.next
             else:
                 cur = cur.next
-            
 
         return dummy.next
 

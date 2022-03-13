@@ -13,14 +13,23 @@
 #         self.right = right
 class Solution:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        if not (preorder and inorder):
+        if not inorder or not postorder:
             return None
 
-        root = TreeNode(preorder[0])
-        midIndex = inorder.index(preorder[0])
+        rootVal = postorder[-1]
+        root = TreeNode(rootVal)
 
-        root.left = self.buildTree(preorder[1:midIndex+1],inorder[:midIndex])
-        root.right = self.buildTree(preorder[midIndex+1:],inorder[midIndex+1:])
+        midIndex = inorder.index(rootVal)
+
+        inorderLeft = inorder[:midIndex]
+        inorderRight = inorder[midIndex + 1:]
+
+        postorderLeft = postorder[: len(inorderLeft)]
+        postorderRight = postorder[len(inorderLeft): len(inorder) - 1]
+
+        root.left = self.buildTree(inorderLeft, postorderLeft)
+        root.right = self.buildTree(inorderRight, postorderRight)
+
         return root
 # @lc code=end
 

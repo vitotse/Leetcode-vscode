@@ -1,0 +1,1 @@
+def compareStr(str1, str2)
